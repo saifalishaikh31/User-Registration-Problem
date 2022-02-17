@@ -43,7 +43,7 @@ namespace UserRegistrationProgram
 
         public void ValidateEmail()
         {
-            Regex reg = new Regex("^[A-Z0-9a-z]{1,}([.#$^_+-][A-Za-z0-9]+)?[@][A-Za-z]{2,}[.][A-Za-z]{2,3}([.][a-zA-Z]{2})?$");
+            Regex reg = new Regex("^[A-Z0-9a-z]{1,}([~!&%.#$^_+-][A-Za-z0-9]+)*[@][A-Za-z]{2,}[.][A-Za-z]{2,3}([.][a-zA-Z]{2})?$");            
             Console.Write("Enter Email Id : ");
             string email = Console.ReadLine();
             if (reg.IsMatch(email))
@@ -54,6 +54,22 @@ namespace UserRegistrationProgram
             {
                 Console.WriteLine("Enter Valid Email Id!!!");
                 Console.WriteLine("Error : It should contain atleast one 'Capital letter' and one 'Small letter' and one 'Number'!!!\n");
+            }
+        }
+
+        public void ValidateMobileNumber()
+        {
+            Regex reg = new Regex("^[9][1][ ]{1}([6-9]{1}[0-9]{9})$");
+            Console.Write("Enter Mobile Number : ");
+            string mobileNo = Console.ReadLine();
+            if (reg.IsMatch(mobileNo))
+            {
+                Console.WriteLine("Your Mobile Number is : {0}", mobileNo);
+            }
+            else
+            {
+                Console.WriteLine("Enter Valid Mobile Number!!!");
+                Console.WriteLine("Error : It should start with '91' and must contain total 12 Digits For eg : 91 9287654356 \n");
             }
         }
     }

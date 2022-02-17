@@ -18,6 +18,7 @@ namespace UserRegistrationProgram
                 Console.WriteLine("1.First Name Validation."
                               + "\n2.Last Name Validation"
                               + "\n3.Email Id Validation"
+                              + "\n4.Mobile Number Validation"
                               + "\n0.Exit");
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch(option)
@@ -30,6 +31,9 @@ namespace UserRegistrationProgram
                         break;
                     case 3:
                         validate.ValidateEmail();
+                        break;
+                    case 4:
+                        validate.ValidateMobileNumber();
                         break;
                     case 0:
                         flag = false;

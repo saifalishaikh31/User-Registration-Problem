@@ -15,8 +15,9 @@ namespace UserRegistrationProgram
             bool flag = true;
             while(flag)
             {
-                Console.WriteLine("1.Email Validation."
-                              + "\n2.Exit");
+                Console.WriteLine("1.First Name Validation."
+                              + "\n2.Last Name Validation"
+                              + "\n0.Exit");
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch(option)
                 {
@@ -24,6 +25,9 @@ namespace UserRegistrationProgram
                         validate.ValidateFirstName();
                         break;
                     case 2:
+                        validate.ValidateLastName();
+                        break;
+                    case 0:
                         flag = false;
                         break;
                     default:

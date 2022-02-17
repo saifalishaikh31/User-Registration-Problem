@@ -21,7 +21,23 @@ namespace UserRegistrationProgram
             else
             {
                 Console.WriteLine("Enter Valid First Name!!!");
-                Console.WriteLine("It should start with 'Capital letter' and must be greater than 2 words!!!");
+                Console.WriteLine("Error : It should start with 'Capital letter' and must be greater than 2 words!!!\n");
+            }
+        }
+
+        public void ValidateLastName()
+        {
+            Regex reg = new Regex("^[A-Z]{1}[a-z]{2,}$");
+            Console.Write("Enter Last Name : ");
+            string lname = Console.ReadLine();
+            if (reg.IsMatch(lname) && lname.Length >= 3)
+            {
+                Console.WriteLine("Your Last Name is : {0}", lname);
+            }
+            else
+            {
+                Console.WriteLine("Enter Valid Last Name!!!");
+                Console.WriteLine("Error : It should start with 'Capital letter' and must be greater than 2 words!!!\n");
             }
         }
     }

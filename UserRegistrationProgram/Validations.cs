@@ -78,7 +78,7 @@ namespace UserRegistrationProgram
         }
         public void ValidatePassword()
         {
-            Regex reg = new Regex("^.{8,}[A-Z0-9]{1}$");
+            Regex reg = new Regex("^[A-Za-z0-9]{8,}([A-Z0-9][~!&%.#$^_+-]{1})$");
             Console.Write("Enter Password : ");
             string password = Console.ReadLine();
             if (reg.IsMatch(password))
@@ -88,7 +88,10 @@ namespace UserRegistrationProgram
             else
             {
                 Console.WriteLine("Enter Valid Password!!!");
-                Console.WriteLine("Error : It should atleat contain 8 digits and atleat one 'Upper Case Letter' and atleast one 'Numeric Number' !!!\n");
+                Console.WriteLine("Error : It should atleat contain 8 digits"
+                                +"\nand atleat one 'Upper Case Letter'"
+                                +"\nand atleast one 'Numeric Number' "
+                                +"\nand exactly one 'special character' (eg : ~ ! & % . # $ ^ _ + - )\n");
                 ValidatePassword();
             }
         }

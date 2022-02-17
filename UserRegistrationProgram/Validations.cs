@@ -22,6 +22,7 @@ namespace UserRegistrationProgram
             {
                 Console.WriteLine("Enter Valid First Name!!!");
                 Console.WriteLine("Error : It should start with 'Capital letter' and must be greater than 2 words!!!\n");
+                ValidateFirstName();
             }
         }
 
@@ -38,6 +39,7 @@ namespace UserRegistrationProgram
             {
                 Console.WriteLine("Enter Valid Last Name!!!");
                 Console.WriteLine("Error : It should start with 'Capital letter' and must be greater than 2 words!!!\n");
+                ValidateLastName();
             }
         }
 
@@ -54,6 +56,7 @@ namespace UserRegistrationProgram
             {
                 Console.WriteLine("Enter Valid Email Id!!!");
                 Console.WriteLine("Error : It should contain atleast one 'Capital letter' and one 'Small letter' and one 'Number'!!!\n");
+                ValidateEmail();
             }
         }
 
@@ -70,6 +73,23 @@ namespace UserRegistrationProgram
             {
                 Console.WriteLine("Enter Valid Mobile Number!!!");
                 Console.WriteLine("Error : It should start with '91' and must contain total 12 Digits For eg : 91 9287654356 \n");
+                ValidateMobileNumber();
+            }
+        }
+        public void ValidatePassword()
+        {
+            Regex reg = new Regex("^.{8,}$");
+            Console.Write("Enter Password : ");
+            string password = Console.ReadLine();
+            if (reg.IsMatch(password))
+            {
+                Console.WriteLine("Your Password is : {0}", password);
+            }
+            else
+            {
+                Console.WriteLine("Enter Valid Password!!!");
+                Console.WriteLine("Error : It should atleat contain 8 digits!!!\n");
+                ValidatePassword();
             }
         }
     }

@@ -20,6 +20,7 @@ namespace UserRegistrationProgram
                               + "\n3.Email Id Validation"
                               + "\n4.Mobile Number Validation"
                               + "\n5.Password Validation"
+                              + "\n6.Clear All Email Validation"
                               + "\n0.Exit");
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch(option)
@@ -38,6 +39,9 @@ namespace UserRegistrationProgram
                         break;
                     case 5:
                         validate.ValidatePassword();
+                        break;
+                    case 6:
+                        validate.ClearAllEmail();
                         break;
                     case 0:
                         flag = false;

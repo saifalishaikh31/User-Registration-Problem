@@ -53,5 +53,34 @@ namespace UserRegistrationProblemTesting
             string actual = validations.ValidatePassword(userInput);
             Assert.AreEqual(expected, actual);
         }
+        [TestMethod]
+        [DataRow("abc@gmail.com", "abc@gmail.com")]
+        [DataRow("abc-100@yahoo.com", "abc-100@yahoo.com")]
+        [DataRow("abc.100@yahoo.com", "abc.100@yahoo.com")]
+        [DataRow("abc111@yahoo.com", "abc111@yahoo.com")]
+        [DataRow("abc111@abc.com", "abc111@abc.com")]
+        [DataRow("abc-100@abc.net", "abc-100@abc.net")]
+        [DataRow("abc.100@abc.com.au", "abc.100@abc.com.au")]
+        [DataRow("abc@1.com", "abc@1.com")]
+        [DataRow("abc@gmail.com.com", "abc@gmail.com.com")]
+        [DataRow("abc+100@gmail.com", "abc+100@gmail.com")]
+        [DataRow("abc", "Enter Valid Email")]
+        [DataRow("abc@.com.my", "Enter Valid Email")]
+        [DataRow("abc123@.com", "Enter Valid Email")]
+        [DataRow("abc123@.com.com", "Enter Valid Email")]
+        [DataRow("abc()*@gmail.com", "Enter Valid Email")]
+        [DataRow(".abc@abc.com", "Enter Valid Email")]
+        [DataRow("abc@%*.com", "Enter Valid Email")]
+        [DataRow("abc..2002@gmail.com", "Enter Valid Email")]
+        [DataRow("abc.@gmail.com", "Enter Valid Email")]
+        [DataRow("abc@abc@gmail.com", "Enter Valid Email")]
+        [DataRow("abc@gmail.com.1a", "Enter Valid Email")]
+        [DataRow("abc@gmail.com.aa.au", "Enter Valid Email")]
+        public void TestMoodForAllEmailSamples(string userInput, string expected)
+        {
+            Validations validations = new Validations();
+            string actual = validations.ValidateEmail(userInput);
+            Assert.AreEqual(expected, actual);
+        }
     }
 }

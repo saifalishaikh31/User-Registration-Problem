@@ -44,7 +44,7 @@ namespace UserRegistrationProgram
 
         public string ValidateEmail(string email)
         {
-            Regex reg = new Regex("^[A-Z0-9a-z]{1,}([~!&%.#$^_+-][A-Za-z0-9]+)*[@][A-Za-z]{2,}[.][A-Za-z]{2,3}([.][a-zA-Z]{2})?$");                       
+            Regex reg = new Regex("^[A-Z0-9a-z]{1,}([~!&%.#$^_+-][A-Za-z0-9]+)*[@][A-Za-z0-9]{1,}[.][A-Za-z]{2,3}([.][a-zA-Z]{2,3})?$");                       
             if (reg.IsMatch(email))
             {
                 Console.WriteLine("Your Email Id is : {0}", email);

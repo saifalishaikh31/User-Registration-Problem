@@ -7,84 +7,80 @@ using System.Threading.Tasks;
 
 namespace UserRegistrationProgram
 {
-    internal class Validations
+    public class Validations
     {
-        public void ValidateFirstName()
+       
+        public string ValidateFirstName(string firstName)
         {
             Regex reg = new Regex("^[A-Z]{1}[a-z]{2,}$");
-            Console.Write("Enter First Name : ");
-            string fname = Console.ReadLine();
-            if (reg.IsMatch(fname) && fname.Length >= 3)
+            if (reg.IsMatch(firstName) && firstName.Length >= 3)
             {
-                Console.WriteLine("Your First Name is : {0}", fname);
+                Console.WriteLine("Your First Name is : {0}", firstName);
+                return firstName;
             }
             else
             {
                 Console.WriteLine("Enter Valid First Name!!!");
                 Console.WriteLine("Error : It should start with 'Capital letter' and must be greater than 2 words!!!\n");
-                ValidateFirstName();
+                return "Enter Valid First Name";
             }
         }
 
-        public void ValidateLastName()
+        public string ValidateLastName(string lastName)
         {
             Regex reg = new Regex("^[A-Z]{1}[a-z]{2,}$");
-            Console.Write("Enter Last Name : ");
-            string lname = Console.ReadLine();
-            if (reg.IsMatch(lname) && lname.Length >= 3)
+            if (reg.IsMatch(lastName) && lastName.Length >= 3)
             {
-                Console.WriteLine("Your Last Name is : {0}", lname);
+                Console.WriteLine("Your Last Name is : {0}", lastName);
+                return lastName;
             }
             else
             {
                 Console.WriteLine("Enter Valid Last Name!!!");
                 Console.WriteLine("Error : It should start with 'Capital letter' and must be greater than 2 words!!!\n");
-                ValidateLastName();
+                return "Enter Valid Last Name";
             }
         }
 
-        public void ValidateEmail()
+        public string ValidateEmail(string email)
         {
-            Regex reg = new Regex("^[A-Z0-9a-z]{1,}([~!&%.#$^_+-][A-Za-z0-9]+)*[@][A-Za-z]{2,}[.][A-Za-z]{2,3}([.][a-zA-Z]{2})?$");            
-            Console.Write("Enter Email Id : ");
-            string email = Console.ReadLine();
+            Regex reg = new Regex("^[A-Z0-9a-z]{1,}([~!&%.#$^_+-][A-Za-z0-9]+)*[@][A-Za-z]{2,}[.][A-Za-z]{2,3}([.][a-zA-Z]{2})?$");                       
             if (reg.IsMatch(email))
             {
                 Console.WriteLine("Your Email Id is : {0}", email);
+                return email;
             }
             else
             {
                 Console.WriteLine("Enter Valid Email Id!!!");
                 Console.WriteLine("Error : It should contain atleast one 'Capital letter' and one 'Small letter' and one 'Number'!!!\n");
-                ValidateEmail();
+                return "Enter Valid Email";
             }
         }
 
-        public void ValidateMobileNumber()
+        public string ValidateMobileNumber(string mobileNo)
         {
             Regex reg = new Regex("^[9][1][ ]{1}([6-9]{1}[0-9]{9})$");
-            Console.Write("Enter Mobile Number : ");
-            string mobileNo = Console.ReadLine();
             if (reg.IsMatch(mobileNo))
             {
                 Console.WriteLine("Your Mobile Number is : {0}", mobileNo);
+                return mobileNo;
             }
             else
             {
                 Console.WriteLine("Enter Valid Mobile Number!!!");
                 Console.WriteLine("Error : It should start with '91' and must contain total 12 Digits For eg : 91 9287654356 \n");
-                ValidateMobileNumber();
+                return "Enter Valid Mobile Number";
             }
         }
-        public void ValidatePassword()
+        public string ValidatePassword(string password)
         {
-            Regex reg = new Regex("^[A-Za-z0-9]{8,}([A-Z0-9][~!&%.#$^_+-]{1})$");
-           // Regex reg = new Regex("(?=.*[0-9])(?=.*[A-Z])(?=.*[@#$%]).[A-Z0-9a-z@#$%]{8,}");
-            Console.Write("Enter Password : ");
-            string password = Console.ReadLine();
+           Regex reg = new Regex("^[A-Za-z0-9]{8,}([A-Z0-9][~!&%.#$^_+-]{1})$");
+           //Regex reg = new Regex("(?=.*[0-9])(?=.*[A-Z])(?=.*[@#$%]).[A-Z0-9a-z@#$%]{8,}");
             if (reg.IsMatch(password))
             {
                 Console.WriteLine("Your Password is : {0}", password);
+                return password;
             }
             else
             {
@@ -93,7 +89,7 @@ namespace UserRegistrationProgram
                                 +"\nand atleat one 'Upper Case Letter'"
                                 +"\nand atleast one 'Numeric Number' "
                                 +"\nand exactly one 'special character' (eg : ~ ! & % . # $ ^ _ + - )\n");
-                ValidatePassword();
+                return "Enter Valid Password";
             }
         }
 
